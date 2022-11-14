@@ -15,14 +15,14 @@ class Ride
     @excitement    = args[:excitement]
     @total_revenue = 0
     @rider_log     = Hash.new(0)
-    @rider_count   = 0
   end
 
   def board_rider(rider)
-    @rider_log[rider] 
+    @rider_log[rider] += 1
+    pay_to_ride(rider)
   end
 
-  def count_rider
-    @rider_count += 1
+  def pay_to_ride(rider)
+    rider.spend_money(@admission_fee)
   end
 end

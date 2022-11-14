@@ -26,7 +26,6 @@ describe Ride do
       expect(ride1.excitement).to eq(:gentle)
       expect(ride1.total_revenue).to eq(0)
       expect(ride1.rider_log).to eq({})
-      expect(ride1.rider_count).to eq(0)
     end
   end
 
@@ -37,6 +36,19 @@ describe Ride do
 
       expect(ride1.rider_log.keys[0]).to eq(visitor1)
       expect(ride1.rider_log.values[0]).to eq(1)
+    end
+  end
+
+  describe '#pay_to_ride' do
+    it 'charges the rider for admission' do
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+      ride1.board_rider(visitor2)
+
+      expect(ride1.rider_log.keys[0]).to eq(visitor1)
+      expect(ride1.rider_log.values[0]).to eq(1)
+      expect(visitor1.spending_money).to eq(9)
+      expect(visitor2.spending_money).to eq(3)
     end
   end
 end
