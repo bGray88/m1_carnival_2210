@@ -10,4 +10,8 @@ class Carnival
   def rides
     @rides
   end
+
+  def add_ride(ride)
+    @rides.push(ride)
+  end
 end
