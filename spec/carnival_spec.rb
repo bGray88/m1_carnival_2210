@@ -172,27 +172,9 @@ describe Carnival do
   #   end
   # end
 
-  describe '#summary' do
-    it 'provides a breakdown of carnival results' do
-      carnival.add_ride(ride1)
-      carnival.add_ride(ride2)
-
-      visitor1.add_preference(:gentle)
-      visitor2.add_preference(:gentle)
-      visitor2.add_preference(:thrilling)
-      visitor3.add_preference(:thrilling)
-
-      ride1.board_rider(visitor1)
-      ride1.board_rider(visitor2)
-      ride1.board_rider(visitor2)
-      ride2.board_rider(visitor1)
-
-      expect(carnival.total_revenue_all).to be(8)
-
-      ride1.board_rider(visitor1)
-      ride1.board_rider(visitor1)
-
-      expect(carnival.total_revenue_all).to be(10)
-    end
-  end
+  # describe '#summary' do
+  #   it 'provides a breakdown of carnival results' do
+      
+  #   end
+  # end
 end
