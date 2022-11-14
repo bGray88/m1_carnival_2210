@@ -18,4 +18,8 @@ class Visitor
   def add_preference(preference)
     preferences.push(preference)
   end
+
+  def tall_enough(threshold)
+    @height >= threshold
+  end
 end
