@@ -35,5 +35,7 @@ class Ride
     @rider_log.sum { |rider| rider[1] }
   end
 
-  
+  def visitor_count
+    @rider_log.length
+  end
 end
