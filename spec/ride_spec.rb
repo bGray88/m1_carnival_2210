@@ -118,6 +118,8 @@ describe Ride do
       ride2.board_rider(visitor1)
 
       expect(ride1.popularity).to eq(3)
+      expect(ride3.popularity).to eq(0)
+      expect(ride2.popularity).to eq(1)
     end
   end
 end
