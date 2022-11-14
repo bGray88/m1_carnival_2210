@@ -26,4 +26,8 @@ class Ride
     rider.spend_money(@admission_fee)
     @total_revenue += @admission_fee
   end
+
+  def valid_rider(rider)
+    rider.tall_enough(min_height) && rider.pre
+  end
 end
