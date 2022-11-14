@@ -31,4 +31,8 @@ class Carnival
     [profitable_rides[0]] unless tie?(profitable_rides)
     profitable_rides.select { |ride| ride.total_revenue == profitable_rides[0].total_revenue }
   end
+
+  def total_revenue_all
+    @rides.sum { |ride| ride.total_revenue }
+  end
 end
