@@ -13,6 +13,22 @@ describe Ride do
                               excitement: :gentle
                             })
                   }
+  let(:ride2)    {
+                    Ride.new({
+                               name: 'Ferris Wheel',
+                               min_height: 36,
+                               admission_fee: 5,
+                               excitement: :gentle
+                             })
+                   }
+  let(:ride3)    {
+                    Ride.new({
+                               name: 'Roller Coaster',
+                               min_height: 54,
+                               admission_fee: 2,
+                               excitement: :thrilling
+                             })
+                   }
   let(:visitor1) { Visitor.new('Bruce',  54, '$10') }
   let(:visitor2) { Visitor.new('Tucker', 36, '$5') }
   let(:visitor3) { Visitor.new('Penny',  64, '$15') }
@@ -59,6 +75,17 @@ describe Ride do
       ride1.board_rider(visitor2)
 
       expect(ride1.total_revenue).to eq(3)
+    end
+  end
+
+  describe '#valid_rider' do
+    it 'checks qualifying attributes for rider against ride' do
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
+      expect(ride3.valid_rider(visitor1)).to eq(false)
     end
   end
 end
