@@ -18,8 +18,8 @@ class Ride
   end
 
   def board_rider(rider)
-    @rider_log[rider] += 1
-    pay_to_ride(rider)
+    @rider_log[rider] += 1 if valid_rider(rider)
+    pay_to_ride(rider) if valid_rider(rider)
   end
 
   def pay_to_ride(rider)

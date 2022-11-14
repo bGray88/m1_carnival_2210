@@ -47,6 +47,11 @@ describe Ride do
 
   describe '#board_rider' do
     it 'adds visitor to the rider_log' do
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
       ride1.board_rider(visitor1)
       ride1.board_rider(visitor2)
 
@@ -57,6 +62,11 @@ describe Ride do
 
   describe '#pay_to_ride' do
     it 'charges the rider for admission' do
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
       ride1.board_rider(visitor1)
       ride1.board_rider(visitor2)
       ride1.board_rider(visitor2)
@@ -70,6 +80,11 @@ describe Ride do
 
   describe '#total_revenue' do
     it 'provides the calculated total revenue for the ride' do
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
       ride1.board_rider(visitor1)
       ride1.board_rider(visitor2)
       ride1.board_rider(visitor2)
@@ -85,6 +100,7 @@ describe Ride do
       visitor2.add_preference(:thrilling)
       visitor3.add_preference(:thrilling)
 
+      expect(ride1.valid_rider(visitor1)).to eq(true)
       expect(ride3.valid_rider(visitor1)).to eq(false)
     end
   end
