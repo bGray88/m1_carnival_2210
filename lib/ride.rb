@@ -24,5 +24,6 @@ class Ride
 
   def pay_to_ride(rider)
     rider.spend_money(@admission_fee)
+    @total_revenue += @admission_fee
   end
 end
