@@ -37,6 +37,8 @@ class Carnival
   end
 
   def summary
+    visitor_count  = @rides.sum { |ride| ride.visitor_count }
+    revenue_earned = total_revenue_all
     
   end
 end

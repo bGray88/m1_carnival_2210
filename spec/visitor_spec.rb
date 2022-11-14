@@ -82,4 +82,10 @@ let(:ride3)    {
       expect(visitor1.interested?(ride3)).to be false
     end
   end
+
+  describe '#favorite_ride' do
+    it 'tracks the ride ridden most' do
+      expect(visitor1.favorite_ride('Ferris Wheel')).to eq('Ferris Wheel')
+    end
+  end
 end
