@@ -70,4 +70,32 @@ describe Carnival do
       expect(carnival.most_popular_ride).to eq(ride1)
     end
   end
+
+  describe '#popular_tie' do
+    it 'tests group of rides for equality and returns boolean' do
+      carnival.add_ride(ride1)
+      carnival.add_ride(ride2)
+
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+      ride1.board_rider(visitor2)
+      ride2.board_rider(visitor1)
+
+      rides = [ride1.popularity, ride2.popularity]
+
+      expect(carnival.popular_tie?(rides)).to be(false)
+
+      ride2.board_rider(visitor1)
+      ride2.board_rider(visitor1)
+
+      rides = [ride1.popularity, ride2.popularity]
+
+      expect(carnival.popular_tie?(rides)).to be(true)
+    end
+  end
 end
