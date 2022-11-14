@@ -152,6 +152,26 @@ describe Carnival do
     end
   end
 
+  # describe '#visitor_count' do
+  #   it 'returns total count of ride visitors' do
+  #     visitor1.add_preference(:gentle)
+  #     visitor2.add_preference(:gentle)
+  #     visitor2.add_preference(:thrilling)
+  #     visitor3.add_preference(:thrilling)
+
+  #     ride1.board_rider(visitor1)
+  #     ride1.board_rider(visitor2)
+  #     ride1.board_rider(visitor2)
+  #     ride2.board_rider(visitor1)
+
+  #     expect(ride1.popularity).to eq(3)
+  #     expect(ride3.popularity).to eq(0)
+  #     expect(ride2.popularity).to eq(1)
+
+  #     expect(carnival.visitor_count).to eq(2)
+  #   end
+  # end
+
   describe '#summary' do
     it 'provides a breakdown of carnival results' do
       carnival.add_ride(ride1)

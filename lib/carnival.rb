@@ -35,10 +35,15 @@ class Carnival
   def total_revenue_all
     @rides.sum { |ride| ride.total_revenue }
   end
+  
+  def visitor_count
+    @rides.all_visitors.map { |visitor| p visitor }
+  end
 
   def summary
+    visitors       = 
     visitor_count  = @rides.sum { |ride| ride.visitor_count }
     revenue_earned = total_revenue_all
-    
+    {}
   end
 end

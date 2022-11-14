@@ -123,8 +123,8 @@ describe Ride do
     end
   end
 
-  describe '#visitor_count' do
-    it 'returns total count of ride visitors' do
+  describe '#all_visitors' do
+    it 'returns a list of all visitors that have ridden' do
       visitor1.add_preference(:gentle)
       visitor2.add_preference(:gentle)
       visitor2.add_preference(:thrilling)
@@ -135,11 +135,7 @@ describe Ride do
       ride1.board_rider(visitor2)
       ride2.board_rider(visitor1)
 
-      expect(ride1.popularity).to eq(3)
-      expect(ride3.popularity).to eq(0)
-      expect(ride2.popularity).to eq(1)
-
-      expect(ride1.visitor_count).to eq(2)
+      expect(ride1.all_visitors.length).to eq(2)
     end
   end
 end

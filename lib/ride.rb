@@ -31,11 +31,11 @@ class Ride
     rider.tall_enough(min_height) && rider.interested?(self)
   end
 
-  def popularity
-    @rider_log.sum { |rider| rider[1] }
+  def all_visitors
+    @rider_log.map { |visitor| visitor }
   end
 
-  def visitor_count
-    @rider_log.length
+  def popularity
+    @rider_log.sum { |rider| rider[1] }
   end
 end
