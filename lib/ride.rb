@@ -28,6 +28,6 @@ class Ride
   end
 
   def valid_rider(rider)
-    rider.tall_enough(min_height) && rider.pre
+    rider.tall_enough(min_height) && rider
   end
 end

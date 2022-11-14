@@ -74,6 +74,9 @@ let(:ride3)    {
 
   describe '#interested?' do
     it 'checks preferences against excitement level returns boolean if included' do
+      visitor1.add_preference(:gentle)
+      visitor3.add_preference(:thrilling)
+      
       expect(visitor1.interested?(ride1)).to be true
       expect(visitor3.interested?(ride3)).to be true
       expect(visitor1.interested?(ride3)).to be false

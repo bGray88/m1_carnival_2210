@@ -23,4 +23,8 @@ class Visitor
   def spend_money(amount)
     @spending_money -= amount unless (spending_money - amount) < 0
   end
+
+  def interested?(ride)
+    @preferences.any? { |preference| preference == ride.excitement }
+  end
 end
