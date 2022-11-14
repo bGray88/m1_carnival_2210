@@ -2,7 +2,7 @@ class Carnival
 
   attr_reader :duration
 
-  def initialize()
+  def initialize
     @duration = 10
     @rides    = []
   end
@@ -17,12 +17,18 @@ class Carnival
 
   def most_popular_ride
     popular_rides = @rides.sort_by { |ride| ride.popularity }.reverse
-    [popular_rides[0]] unless popular_tie?(popular_rides)
+    [popular_rides[0]] unless tie?(popular_rides)
     popular_rides.select { |ride| ride.popularity == popular_rides[0].popularity }
   end
 
-  def popular_tie?(rides)
+  def tie?(rides)
     return rides[0] == rides[1] if rides.length > 1
     false
+  end
+
+  def most_profitable_ride
+    profitable_rides = @rides.sort_by { |ride| ride.total_revenue }.reverse
+    [profitable_rides[0]] unless tie?(profitable_rides)
+    profitable_rides.select { |ride| ride.total_revenue == profitable_rides[0].total_revenue }
   end
 end

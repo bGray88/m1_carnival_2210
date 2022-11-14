@@ -76,7 +76,7 @@ describe Carnival do
     end
   end
 
-  describe '#popular_tie' do
+  describe '#tie' do
     it 'tests group of rides for equality and returns boolean' do
       carnival.add_ride(ride1)
       carnival.add_ride(ride2)
@@ -93,14 +93,38 @@ describe Carnival do
 
       rides = [ride1.popularity, ride2.popularity]
 
-      expect(carnival.popular_tie?(rides)).to be(false)
+      expect(carnival.tie?(rides)).to be(false)
 
       ride2.board_rider(visitor1)
       ride2.board_rider(visitor1)
 
       rides = [ride1.popularity, ride2.popularity]
 
-      expect(carnival.popular_tie?(rides)).to be(true)
+      expect(carnival.tie?(rides)).to be(true)
+    end
+  end
+
+  describe '#most_profitable ride' do
+    it 'returns the ride that is most profitable' do
+      carnival.add_ride(ride1)
+      carnival.add_ride(ride2)
+
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+      ride1.board_rider(visitor2)
+      ride2.board_rider(visitor1)
+
+      expect(carnival.most_profitable_ride.length).to be(1)
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor1)
+
+      expect(carnival.most_profitable_ride.length).to be(2)
     end
   end
 end
