@@ -12,7 +12,7 @@ describe Ride do
 
   describe '#initialize' do
     it 'exists and has attributes' do
-      
+      expect(ride1).to be_instance_of(Ride)
     end
   end
 end
