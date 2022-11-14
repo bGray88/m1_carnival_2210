@@ -15,14 +15,27 @@ class Ride
     @excitement    = args[:excitement]
     @total_revenue = 0
     @rider_log     = Hash.new(0)
-    @rider_count   = 0
   end
 
   def board_rider(rider)
-    @rider_log[rider] 
+    @rider_log[rider] += 1 if valid_rider(rider)
+    pay_to_ride(rider) if valid_rider(rider)
   end
 
-  def count_rider
-    @rider_count += 1
+  def pay_to_ride(rider)
+    rider.spend_money(@admission_fee)
+    @total_revenue += @admission_fee
+  end
+
+  def valid_rider(rider)
+    rider.tall_enough(min_height) && rider.interested?(self)
+  end
+
+  def all_visitors
+    @rider_log.map { |visitor| visitor }
+  end
+
+  def popularity
+    @rider_log.sum { |rider| rider[1] }
   end
 end

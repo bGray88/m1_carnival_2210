@@ -10,6 +10,7 @@ class Visitor
     @height         = height
     @spending_money = spending_money.delete('$').to_f.round(2)
     @preferences    = []
+    @favorite_ride  = ''
   end
 
   def add_preference(preference)
@@ -22,5 +23,13 @@ class Visitor
 
   def spend_money(amount)
     @spending_money -= amount unless (spending_money - amount) < 0
+  end
+
+  def interested?(ride)
+    @preferences.any? { |preference| preference == ride.excitement }
+  end
+
+  def favorite_ride(favorite)
+    @favorite_ride = favorite
   end
 end

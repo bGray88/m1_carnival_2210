@@ -115,6 +115,7 @@ pry(main)> visitor1.add_preference(:gentle)
 
 pry(main)> visitor2.add_preference(:gentle)
 
+
 pry(main)> ride1.board_rider(visitor1)
 
 pry(main)> ride1.board_rider(visitor2)
