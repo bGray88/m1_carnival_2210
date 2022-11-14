@@ -36,4 +36,16 @@ describe Visitor do
       expect(visitor1.tall_enough(64)).to be(false)
     end
   end
+
+  describe '#spend_money' do
+    it 'decreases the amount of spending money a visitor has by amount' do
+      visitor1.spend_money(2)
+      
+      expect(visitor1.spending_money).to eq(8)
+
+      visitor1.spend_money(10)
+
+      expect(visitor1.spending_money).to eq(8)
+    end
+  end
 end
