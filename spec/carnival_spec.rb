@@ -2,6 +2,7 @@
 
 require_relative '../lib/ride'
 require_relative '../lib/visitor'
+require_relative '../lib/carnival'
 require 'rspec'
 
 describe Carnival do
@@ -39,6 +40,15 @@ describe Carnival do
       expect(carnival).to be_instance_of(Carnival)
       expect(carnival.duration).to be(10)
       expect(carnival.rides).to eq([])
+    end
+  end
+
+  describe '#add_ride' do
+    it 'adds a ride to the rides collection' do
+      carnival.add_ride(ride1)
+      carnival.add_ride(ride2)
+
+      expect(carnival.rides).to eq([ride1, ride2])
     end
   end
 end
