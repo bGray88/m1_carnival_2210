@@ -16,9 +16,9 @@ class Carnival
   end
 
   def most_popular_ride
-    rides = @rides.sort_by { |ride| ride.popularity }.reverse
-    rides[0] unless popular_tie?(rides)
-
+    popular_rides = @rides.sort_by { |ride| ride.popularity }.reverse
+    [popular_rides[0]] unless popular_tie?(popular_rides)
+    popular_rides.select { |ride| ride.popularity == popular_rides[0].popularity }
   end
 
   def popular_tie?(rides)

@@ -67,7 +67,12 @@ describe Carnival do
       ride1.board_rider(visitor2)
       ride2.board_rider(visitor1)
 
-      expect(carnival.most_popular_ride).to eq(ride1)
+      expect(carnival.most_popular_ride).to eq([ride1])
+
+      ride2.board_rider(visitor1)
+      ride2.board_rider(visitor1)
+
+      expect(carnival.most_popular_ride.length).to be(2)
     end
   end
 
