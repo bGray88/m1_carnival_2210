@@ -27,4 +27,20 @@ describe Ride do
       expect(ride1.total_revenue).to eq(0)
     end
   end
+
+  describe '#board_rider' do
+    it 'adds visitor to the rider_log' do
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+      allow(ride1).to receive(:board_rider).and_return({ visitor1 => 1, visitor2 => 2 })
+
+      expect(ride1.rider_log).to eq('')
+    end
+  end
+
+  describe '#rider_log' do
+    it 'a hash which contains a list of rider objects' do
+      expect(ride1.rider_log).to eq({})
+    end
+  end
 end

@@ -12,5 +12,6 @@ class Ride
     @admission_fee = args[:admission_fee]
     @excitement    = args[:excitement]
     @total_revenue = 0
+    @rider_count   = 0
   end
 end
