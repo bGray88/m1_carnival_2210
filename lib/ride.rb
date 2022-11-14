@@ -30,4 +30,8 @@ class Ride
   def valid_rider(rider)
     rider.tall_enough(min_height) && rider.interested?(self)
   end
+
+  def popularity
+    @rider_log.sum { |rider| rider[1] }
+  end
 end

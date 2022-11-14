@@ -51,4 +51,10 @@ describe Carnival do
       expect(carnival.rides).to eq([ride1, ride2])
     end
   end
+
+  describe '#most_popular_ride' do
+    it 'returns the ride object(s) at the top of the list for ride count' do
+      
+    end
+  end
 end

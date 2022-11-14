@@ -104,4 +104,20 @@ describe Ride do
       expect(ride3.valid_rider(visitor1)).to eq(false)
     end
   end
+
+  describe '#popularity' do
+    it 'returns the total ride count for a ride' do
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+      ride1.board_rider(visitor2)
+      ride2.board_rider(visitor1)
+
+      expect(ride1.popularity).to eq(3)
+    end
+  end
 end
