@@ -51,4 +51,14 @@ describe Ride do
       expect(visitor2.spending_money).to eq(3)
     end
   end
+
+  describe '#total_revenue' do
+    it 'provides the calculated total revenue for the ride' do
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+      ride1.board_rider(visitor2)
+
+      expect(ride1.total_revenue).to eq(3)
+    end
+  end
 end
