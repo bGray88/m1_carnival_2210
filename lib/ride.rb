@@ -34,4 +34,6 @@ class Ride
   def popularity
     @rider_log.sum { |rider| rider[1] }
   end
+
+  
 end
