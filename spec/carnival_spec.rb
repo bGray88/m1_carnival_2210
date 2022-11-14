@@ -54,7 +54,20 @@ describe Carnival do
 
   describe '#most_popular_ride' do
     it 'returns the ride object(s) at the top of the list for ride count' do
-      
+      carnival.add_ride(ride1)
+      carnival.add_ride(ride2)
+
+      visitor1.add_preference(:gentle)
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor2)
+      ride1.board_rider(visitor2)
+      ride2.board_rider(visitor1)
+
+      expect(carnival.most_popular_ride).to eq(ride1)
     end
   end
 end

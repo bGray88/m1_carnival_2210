@@ -14,4 +14,6 @@ class Carnival
   def add_ride(ride)
     @rides.push(ride)
   end
+
+  def most_popular_ride
 end
